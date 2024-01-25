@@ -1,4 +1,5 @@
 from aiogram import F, Router
+from aiogram.enums import ParseMode
 from aiogram.filters import CommandStart
 from aiogram.types import Message
 from fluent.runtime import FluentLocalization
@@ -13,7 +14,7 @@ async def cmd_start(message: Message, l10n: FluentLocalization):
     :param message: message from Telegram
     :param l10n: FluentLocalization object
     """
-    await message.answer(l10n.format_value("start-text"))
+    await message.answer(l10n.format_value("start-text"), parse_mode=ParseMode.HTML)
 
 
 def get_router() -> Router:
